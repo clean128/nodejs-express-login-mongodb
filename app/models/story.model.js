@@ -6,6 +6,10 @@ const Story = mongoose.model(
     title: String,
     content: String,
     tag: String,
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
   })
 );
 

@@ -1,4 +1,3 @@
-const { authJwt } = require("../middlewares");
 const controller = require("../controllers/story.controller");
 
 module.exports = function (app) {
@@ -11,9 +10,5 @@ module.exports = function (app) {
 
   app.post("/api/story/add", controller.addStory);
 
-  app.delete(
-    "/api/story/delete",
-    [authJwt.verifyToken],
-    controller.deleteStory
-  );
+  app.post("/api/story/delete", controller.deleteStory);
 };
