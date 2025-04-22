@@ -1,13 +1,23 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
 const db = {};
 
 db.mongoose = mongoose;
 
-db.user = require("./user.model");
-db.role = require("./role.model");
+db.story = require("./story.model");
+db.tag = require("./tag.model");
 
-db.ROLES = ["user", "admin", "moderator"];
+db.TAGS = [
+  "kindness",
+  "career",
+  "love",
+  "family",
+  "life",
+  "friendship",
+  "growth",
+  "inspiration",
+  "gratitude",
+];
 
 module.exports = db;
