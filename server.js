@@ -30,8 +30,6 @@ app.use(
 );
 
 const db = require("./app/models");
-const Tag = db.tag;
-const TAG_LIST = db.TAGS;
 
 db.mongoose
   .connect(`mongodb://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`, {
@@ -40,7 +38,6 @@ db.mongoose
   })
   .then(() => {
     console.log("Successfully connect to MongoDB.");
-    initial();
   })
   .catch((err) => {
     console.error("Connection error", err);
@@ -54,28 +51,10 @@ app.get("/", (req, res) => {
 
 // routes
 require("./app/routes/auth.routes")(app);
-require("./app/routes/user.routes")(app);
+require("./app/routes/story.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
-
-function initial() {
-  Tag.estimatedDocumentCount((err, count) => {
-    if (!err && count === 0) {
-      TAG_LIST.forEach((tag) => {
-        new Tag({
-          name: tag,
-        }).save((err) => {
-          if (err) {
-            console.log("error", err);
-          }
-
-          console.log(`added '${tag}' to tags collection`);
-        });
-      });
-    }
-  });
-}

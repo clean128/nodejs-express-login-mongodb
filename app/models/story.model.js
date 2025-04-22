@@ -5,13 +5,7 @@ const Story = mongoose.model(
   new mongoose.Schema({
     title: String,
     content: String,
-    // tag: String,
-    tag: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Tag",
-      },
-    ],
+    tag: String,
   })
 );
 
