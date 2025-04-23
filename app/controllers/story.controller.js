@@ -12,16 +12,8 @@ exports.getAllStories = (req, res) => {
 };
 
 exports.addStory = (req, res) => {
-  if (!req.body.title) {
-    res.send({ status: "error", message: "Title cannot be empty!" });
-    return;
-  }
   if (!req.body.content) {
     res.send({ status: "error", message: "Content cannot be empty!" });
-    return;
-  }
-  if (!req.body.tag) {
-    res.send({ status: "error", message: "Tag cannot be empty!" });
     return;
   }
 
