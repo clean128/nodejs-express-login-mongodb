@@ -1,5 +1,3 @@
 module.exports = {
-  HOST: "0.0.0.0",
-  PORT: 27017,
-  DB: "story_books",
+  URI: "mongodb+srv://markusniemela27:7RpJi1uqNOUA8eDE@cluster-anemo.xl96zaa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-anemo",
 };
